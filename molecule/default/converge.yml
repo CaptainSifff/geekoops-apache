@@ -12,8 +12,8 @@
         content: |
           <html>Success! The test page is displayed correctly</html>
         dest: "{{www_dir}}/index.html"
-        group: "{{ apache_user }}"
-        owner: "{{ apache_group }}"
+        group: "{{ apache_group }}"
+        owner: "{{ apache_user }}"
         mode: 0754
       register: deployed
     - name: Perform apache check

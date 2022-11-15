@@ -5,7 +5,7 @@
   package:
     name: "{{ packages }}"
     state: present
-  tags: ['nginx']
+  tags: ['apache']
 - name: Ensure apache service is enabled
   systemd:
     name: "{{ apache_service }}"
