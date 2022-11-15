@@ -51,8 +51,8 @@ provisioner:
         deploy_apache_config: false
 verifier:
   name: testinfra
-  lint:
-    name: flake8
+#  lint:
+#    name: flake8
 #lint: |
 #  set -e
 #  yamllint -d "{extends: relaxed, rules: {line-length: {max: 200}}}" .
