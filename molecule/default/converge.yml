@@ -23,6 +23,6 @@
     # Restart of apache is required for the new configuration
     - name: Restart apache
       systemd:
-        name: apache
+        name: "{{ apache_service }}"
         state: restarted
       when: deployed.changed
