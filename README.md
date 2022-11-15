@@ -1,11 +1,11 @@
-[![Test deployment](https://github.com/GeekOops/geekoops-nginx/actions/workflows/CI.yml/badge.svg)](https://github.com/GeekOops/geekoops-nginx/actions/workflows/CI.yml)
+[![Test deployment](https://github.com/GeekOops/geekoops-apache/actions/workflows/CI.yml/badge.svg)](https://github.com/GeekOops/geekoops-apache/actions/workflows/CI.yml)
 
 # Port of geekoops-nginx to apache2
 
 Configurable ansible role for setting up a nginx webserver on a Linux server. Works with
 
 - openSUSE Leap 15.3
-- openSUSE Leap 15.4
+- openSUSE Leap 15.4 -> tested
 - Debian Buster
 
 ## Role Variables
