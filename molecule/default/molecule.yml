@@ -1,0 +1,58 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+platforms:
+  - name: leap15_3
+    image: registry.opensuse.org/opensuse/leap:15.3
+    dockerfile: Dockerfile.leap15_3
+    command: ${MOLECULE_DOCKER_COMMAND:-"/usr/sbin/init"}
+    privileged: true
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    tmpfs:
+      - /run
+      - /tmp
+  - name: leap15_4
+    image: registry.opensuse.org/opensuse/leap:15.4
+    dockerfile: Dockerfile.leap15_4
+    command: ${MOLECULE_DOCKER_COMMAND:-"/usr/sbin/init"}
+    privileged: true
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    tmpfs:
+      - /run
+      - /tmp
+  - name: bullseye
+    image: docker.io/debian:bullseye
+    dockerfile: Dockerfile.bullseye
+    command: ${MOLECULE_DOCKER_COMMAND:-"/sbin/init"}
+    privileged: true
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    capabilities:
+      - SYS_ADMIN
+    tmpfs:
+      - /run
+      - /tmp
+provisioner:
+  name: ansible
+  inventory:
+    host_vars:
+      leap15_3:
+        vhosts_dir: "/etc/apache2/vhosts.d"
+        deploy_apache_config: true
+      leap15_4:
+        vhosts_dir: "/etc/apache2/vhosts.d"
+        deploy_apache_config: true
+      bullseye:
+        vhosts_dir: "/etc/apache2/sites-enabled"
+        deploy_apache_config: false
+verifier:
+  name: testinfra
+  lint:
+    name: flake8
+lint: |
+  set -e
+  yamllint .

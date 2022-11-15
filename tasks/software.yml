@@ -1,0 +1,14 @@
+---
+# Install and configure apache
+
+- name: Ensure apache is installed
+  package:
+    name: "{{ packages }}"
+    state: present
+  tags: ['nginx']
+- name: Ensure apache service is enabled
+  systemd:
+    name: "{{ apache_service }}"
+    state: started
+    enabled: true
+  tags: ['apache', 'systemd']

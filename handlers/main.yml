@@ -1,0 +1,10 @@
+---
+# handlers file for geekoops-nginx
+
+- name: restart apache
+  service:
+    name: apache
+    state: restarted
+
+- name: reload firewalld
+  shell: firewall-cmd --reload

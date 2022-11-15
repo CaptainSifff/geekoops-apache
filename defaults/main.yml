@@ -1,0 +1,12 @@
+---
+# defaults file for geekoops-apache
+
+# Don't install default page by default
+setup_default_page: false
+default_page_hostname: "localhost"
+
+# firewall configuration
+config_firewall: false
+firewall_zone: "public"
+open_http: true
+open_https: true

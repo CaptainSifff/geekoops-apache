@@ -1,0 +1,20 @@
+---
+# setup a default page
+
+- name: Ensure default page directory exists
+  file:
+    path: "{{www_dir}}/default"
+    owner: "{{apache_user}}"
+    group: "{{apache_group}}"
+    mode: 0755
+    state: directory
+  tags: ['apache']
+- name: Ensure default page exists
+  template:
+    src: index.j2
+    dest: "{{www_dir}}/default/index.html"
+    owner: "{{apache_user}}"
+    group: "{{apache_group}}"
+    mode: 0755
+    force: false
+  tags: ['apache']
