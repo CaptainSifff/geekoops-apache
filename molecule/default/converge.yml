@@ -17,7 +17,7 @@
         mode: 0754
       register: deployed
     - name: Perform apache check
-      shell: {{ apache_cmd }} -t
+      shell: "{{ apache_cmd }} -t"
       when: deployed.changed
 
     # Restart of apache is required for the new configuration
