@@ -13,3 +13,4 @@ vhosts_dir: "/etc/apache2/sites-enabled"
 
 apache_user: "www-data"
 apache_group: "www-data"
+apache_cmd: "apache2ctl"
