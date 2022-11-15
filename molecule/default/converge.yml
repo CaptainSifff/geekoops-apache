@@ -16,24 +16,6 @@
         owner: "{{ apache_group }}"
         mode: 0754
       register: deployed
-    - name: Deploy apache configuration
-      copy:
-        content: |
-              server {
-                  listen 80 default_server;
-                  listen [::]:80 default_server;
-                  root {{ www_dir }};
-                  index index.html index.htm;
-                  location / {
-                      try_files $uri $uri/ =404;
-                  }
-              }
-        dest: "{{vhosts_dir}}/default.conf"
-        owner: root
-        group: root
-        mode: 0644
-      when: deployed.changed and deploy_apache_config == true
-
     - name: Perform apache check
       shell: httpd -t
       when: deployed.changed
