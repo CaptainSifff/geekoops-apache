@@ -2,11 +2,11 @@
 
 # Port of geekoops-nginx to apache2
 
-Configurable ansible role for setting up a nginx webserver on a Linux server. Works with
+Configurable ansible role for setting up an apache2 webserver on a Linux server. Works with
 
-- openSUSE Leap 15.3
 - openSUSE Leap 15.4 -> tested
 - Debian Buster
+- Debian Bookworm
 
 ## Role Variables
 --------------
